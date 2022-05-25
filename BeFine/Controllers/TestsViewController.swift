@@ -87,6 +87,8 @@ class TestsViewController: UIViewController {
 //        ManageText.isHidden = true
 //        addTestButton.isHidden = true
        
+        
+        
      }
     
     func configureView(){
