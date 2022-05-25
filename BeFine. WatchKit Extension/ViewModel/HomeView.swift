@@ -5,19 +5,15 @@
 //  Created by shahadmufleh on 10/05/2022.
 //
 
-
 import SwiftUI
 import UserNotifications
 import HealthKit
 import WatchConnectivity
 struct HomeView: View {
     private var healthStore = HKHealthStore()
-   
-   // var reminderViewModel2: HomeView2
     let heartRateQuantity = HKUnit(from: "count/min")
     let content = UNMutableNotificationContent()
     @ObservedObject var reminderViewModel = ReminderModel()
-   // @ObservedObject var reminderTime = HomeView2()
     var body: some View {
         NavigationView {
             VStack {
@@ -43,6 +39,17 @@ struct HomeView: View {
     
     
 }
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
+
+    }
+}
+
+
+
+
 
 extension HomeView {
     func start() {
@@ -144,53 +151,3 @@ extension HomeView {
 }
 
 
-
-public class ReminderModel: NSObject,  WCSessionDelegate, ObservableObject {
-    var session: WCSession
-    @Published var messageTextName1 = ""
-    @Published var messageTextTime1 = ""
-    @Published var messageTextNameForTest = ""
-    @Published var messageTextTimeForTest = ""
-    @Published var reminders: [ReminderType] = [
-        ReminderType(id: UUID(), titleOfReminder: "Today's Meds", symbolName: "pills.fill6", name: "Metformin", time: "02:00 PM"),
-        ReminderType(id: UUID(), titleOfReminder: "Today's Tests", symbolName: "Test", name: "Daily test", time: "09:00 AM")
-
-    ]
-    init(session: WCSession = .default){
-        self.session = session
-        super.init()
-        self.session.delegate = self
-        session.activate()
-    }
-    
-    
-    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        
-    }
-    public func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        DispatchQueue.main.async {
- 
-//
-//                     self.messageTextName1 = message["message"] as? String ?? "Unknown"
-//                     self.messageTextTime1 = message["messageForTime"] as? String ?? "Not Found"
-//                     self.messageTextNameForTest = message["message"] as? String ?? "Unknown"
-//                     self.messageTextTimeForTest = message["messageForTime"] as? String ?? "Not Found"
-            
-            self.reminders[0].name = message["message"] as? String ?? "Unknown"
-            self.reminders[0].time =  message["messageForTime"] as? String ?? "Not Found"
-            
-        }
-        
-    }
-    
-    
-    
-    
-}
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeView()
-//
-//    }
-//}

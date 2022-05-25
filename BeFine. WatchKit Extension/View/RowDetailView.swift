@@ -20,9 +20,9 @@ struct RowDetailView: View {
                 NavigationLink(destination: TypeDetailView(reminderViewModel: reminderViewModel2, buttonIsPressed: $buttonIsPressed, skipButtonPressed: $skipButtonPressed ), label:{
                         HStack {
                             VStack(alignment: .leading){
-                                Text(reminderViewModel2.reminders[0].name)
+                                Text(reminderViewModel2.reminders[0].time)
                                     .accessibilityAddTraits(.isButton)
-                                Text("\(reminderViewModel2.reminders[0].time)")
+                                Text("\(reminderViewModel2.reminders[0].name)")
                                     .accessibilityAddTraits(.isButton)
                             }
                             Spacer()
@@ -42,13 +42,7 @@ struct RowDetailView: View {
             }
         }
       
-
-        
     }
-       
-   
-       
-    
     
 }
 

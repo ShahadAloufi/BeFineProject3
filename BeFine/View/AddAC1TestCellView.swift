@@ -10,7 +10,6 @@ class ListCell3: UITableViewCell {
     var timetitleLabel = UILabel()
     var timepicker = UIDatePicker()
     var dateFormatter: DateFormatter!
-
     override init (style : UITableViewCell.CellStyle, reuseIdentifier reuseidentifier: String?){
           super.init(style: style, reuseIdentifier: reuseidentifier)
         addSubview(timetitleLabel)

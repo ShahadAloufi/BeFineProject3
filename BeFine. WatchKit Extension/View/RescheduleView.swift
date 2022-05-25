@@ -13,7 +13,7 @@ struct RescheduleView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("Reschdule for \(reminderViewModel.reminders[0].time)")
+                Text("Reschdule for \(reminderViewModel.reminders[0].name), \(reminderViewModel.reminders[0].time)")
                     .font(.footnote)
                 Button(action: {
                     print("Round Action")

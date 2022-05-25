@@ -6,69 +6,6 @@
 //
 
 
-import CoreData
-//
-//class DataController: ObservableObject {
-//
-//    let container = NSPersistentContainer(name: "ReminderModel")
-//
-//    init(){
-//
-//        container.loadPersistentStores { description, error in
-//            if let error = error {
-//                print("core data didnt work\(error.localizedDescription)")
-//            }
-//        }
-//    }
-//
-//
-//
-//}
-//struct PersistenceController {
-//    static let shared = PersistenceController()
-//
-//    let container: NSPersistentContainer
-//
-//    init(inMemory: Bool = false) {
-//        container = NSPersistentContainer(name: "ReminderModel")
-//        if inMemory{
-//            container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
-//        }
-//        container.loadPersistentStores(completionHandler: {(storeDescription, error)in
-//            if let error = error as NSError?{
-//                fatalError("Unresolved error \(error), \(error.userInfo)")
-//            }
-//        })
-//    }
-
-
-
-
-//    override open class func defaultDirectoryURL() -> URL {
-//        var storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.myfirstappsh.BeFine")
-//        storeURL = storeURL?.appendingPathComponent("ReminderModel")
-//        return storeURL!
-//    }
-//}
-//class CoreDataManager {
-//
-//    let persistentContainer: NSPersistentContainer
-//    static let shared: CoreDataManager = CoreDataManager()
-//
-//    private init() {
-//
-//        persistentContainer = NSPersistentContainer(name: "ReminderModel")
-//        persistentContainer.loadPersistentStores { description, error in
-//            if let error = error {
-//                fatalError("Unable to initialize Core Data \(error)")
-//            }
-//        }
-//
-//    }
-//
-//}
-
-
 import Foundation
 // 1
 import WatchConnectivity

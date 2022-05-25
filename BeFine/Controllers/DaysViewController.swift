@@ -8,7 +8,7 @@
 import UIKit
 var day: String = ""
 var userSelectedDate: [String] = []
-class RepeatVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
+class RepeatVC: UIViewController  {
     var safeArea: UILayoutGuide!
     var cancelButton: UIButton!
     var tableView : UITableView = {
@@ -36,29 +36,39 @@ class RepeatVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
         tableView.reloadData()
  
     }
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return daysArray.count
-    }
+     
+
+
+}
+
+//TableView
+//It is better to make conformances to protocols in the extensions and not in the definition of the class
+extension RepeatVC:  UITableViewDelegate, UITableViewDataSource {
     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = UITableViewCell(style: .default , reuseIdentifier: nil)
-         cell.textLabel?.text = daysArray[indexPath.row].day
-         cell.backgroundColor = .systemGray5
-        return cell
-    }
     
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if  tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark
-        {
-           tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
-            _ = daysArray[indexPath.row].isChecked = false
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       return daysArray.count
+   }
+   
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default , reuseIdentifier: nil)
+        cell.textLabel?.text = daysArray[indexPath.row].day
+        cell.backgroundColor = .systemGray5
+       return cell
+   }
+   
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       if  tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark
+       {
+          tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
+           _ = daysArray[indexPath.row].isChecked = false
+      }
+       else
+       {
+           tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+           _ = daysArray[indexPath.row].isChecked = true
        }
-        else
-        {
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
-            _ = daysArray[indexPath.row].isChecked = true
-        }
-    }
+   }
     
     @objc func CloseAddScreen(_ sender: UIButton){
         dismiss(animated: true, completion: nil)
@@ -85,6 +95,5 @@ class RepeatVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
         tableView.heightAnchor.constraint(equalTo: view.heightAnchor, constant: -478).isActive = true
 
     }
-
 
 }

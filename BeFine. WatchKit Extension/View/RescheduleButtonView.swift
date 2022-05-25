@@ -23,12 +23,9 @@ struct RescheduleButtonView: View {
                     .clipShape(Circle())
                 }
                 .buttonStyle(PlainButtonStyle())
-                
-                
             }
             
         }
-        
         
     }
 }

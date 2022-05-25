@@ -7,24 +7,11 @@
 
 import UIKit
 import WatchConnectivity
-class AddTestSegment: UIViewController, WCSessionDelegate {
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        //
-    }
-    
-    func sessionDidBecomeInactive(_ session: WCSession) {
-        //
-    }
-    
-    func sessionDidDeactivate(_ session: WCSession) {
-        //
-    }
-    
+class AddTestSegment: UIViewController {
     let secondVC = AddDailyTestVC()
     let thirdVC = AddAC1TestVC()
     var steppernum = UILabel()
     var session: WCSession?
-    
     var segment: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,8 +83,6 @@ class AddTestSegment: UIViewController, WCSessionDelegate {
         }
        
         
-        
-        
         self.dismiss(animated: true) {
             NotificationCenter.default.post(name: .reload, object: nil)
            
@@ -109,6 +94,24 @@ class AddTestSegment: UIViewController, WCSessionDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
+    
+    
+}
+
+//It is better to make conformances to protocols in the extensions and not in the definition of the class
+extension AddTestSegment: WCSessionDelegate {
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        //
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        //
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        //
+    }
     func SetupForWatchSession(){
         if WCSession.isSupported(){
             session = WCSession.default
@@ -122,5 +125,3 @@ class AddTestSegment: UIViewController, WCSessionDelegate {
     }
     
 }
-
-

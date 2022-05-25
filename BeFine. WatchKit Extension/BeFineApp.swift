@@ -9,12 +9,10 @@ import SwiftUI
 import WatchConnectivity
 @main
 struct BeFineApp: App {
-  
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
                 HomeView()
-                
             }
         }
 

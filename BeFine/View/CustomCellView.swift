@@ -50,17 +50,8 @@ class CustomTabelViewCellTableViewCell: UITableViewCell {
         dose.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: 10).isActive = true
         dose.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 290).isActive = true
         dose.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: -60).isActive = true
-        
-     
-      
+       
     }
-    
-    func setUpLayout(){
-        
-    }
-    
-    
-    
     
 }
 

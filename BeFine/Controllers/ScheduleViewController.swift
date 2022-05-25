@@ -308,7 +308,7 @@ extension UIBarButtonItem {
 }
 
 
-
+//It is better to make conformances to protocols in the extensions and not in the definition of the class
 extension ScheduleViewController: WCSessionDelegate {
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
@@ -324,16 +324,8 @@ extension ScheduleViewController: WCSessionDelegate {
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-//        if let valueFromWatch = message["watch"] as? String{
-//            self.MedsTextField.text = valueFromWatch
-//            selectedDte = valueFromWatch
-//        }
-//
-//        if let valueFromWatch2 = message["watchMessage2"] as? String{
-//           selectedDte = valueFromWatch2
-//        }
-        
-     
+
+     //
     }
     
     func SetupForWatchSession(){

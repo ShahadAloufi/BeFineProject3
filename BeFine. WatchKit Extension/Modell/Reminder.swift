@@ -17,16 +17,31 @@ struct ReminderType: Identifiable {
     var time: String
 }
 
-//class ReminderViewModel: NSObject, WCSessionDelegate, ObservableObject {
-//    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-//        //
-//    }
-//
-//    //this published prop will alert the class of any changes in the reminderType model
-//    @Published var reminders: [ReminderType] = [
-//        ReminderType(id: UUID(), titleOfReminder: "Today's Meds", symbolName: "pills.fill6", name: "Metformin", time: "02:00 PM"),
-//        ReminderType(id: UUID(), titleOfReminder: "Today's Tests", symbolName: "Test", name: "Daily test", time: "09:00 AM")
-//
-//    ]
-//
-//}
+public class ReminderModel: NSObject,  WCSessionDelegate, ObservableObject {
+    var session: WCSession
+    @Published var reminders: [ReminderType] = [
+        ReminderType(id: UUID(), titleOfReminder: "Today's Meds", symbolName: "pills.fill6", name: "Metformin", time: "02:00 PM"),
+        ReminderType(id: UUID(), titleOfReminder: "Today's Tests", symbolName: "Test", name: "Daily test", time: "09:00 AM")
+
+    ]
+    init(session: WCSession = .default){
+        self.session = session
+        super.init()
+        self.session.delegate = self
+        session.activate()
+    }
+    
+    
+    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    public func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        DispatchQueue.main.async {
+            self.reminders[0].name = message["message"] as? String ?? "Unknown"
+            self.reminders[0].time =  message["messageForTime"] as? String ?? "Not Found"
+            
+        }
+        
+    }
+    
+}

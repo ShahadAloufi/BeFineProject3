@@ -6,7 +6,6 @@
 //
 
 import UIKit
-//var selectedDte : String = ""
 class ListCell2: UITableViewCell {
     var timetitleLabel = UILabel()
     var timepicker = UIDatePicker()
@@ -66,7 +65,6 @@ class ListCell2: UITableViewCell {
     @objc func datePickerValueChanged(_ sender: UIDatePicker){
                    // Create date formatter
         let dateFormatter = DateFormatter()
-//        dateFormatter.dateStyle = DateFormatter.Style.short
         dateFormatter.timeStyle = DateFormatter.Style.short
                 self.dateFormatter = DateFormatter()
                    // Set date format
@@ -74,7 +72,6 @@ class ListCell2: UITableViewCell {
                    dateFormatter.dateFormat = "hh:mm a"
                    // Apply date format
         let selectedDate: String = dateFormatter.string(from: sender.date)
-        
                    selectedDte = selectedDate
                    print("Selected value \(selectedDate)")
        

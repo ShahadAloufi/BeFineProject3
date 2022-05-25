@@ -64,23 +64,9 @@ class ListCell: UITableViewCell {
         timepicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
     }
     
-//    @objc func datePickerValueChanged(_ sender: UIDatePicker){
-//        // Create date formatter
-//        self.dateFormatter = DateFormatter()
-//        // Set date format
-//        dateFormatter.dateStyle = .short
-//        dateFormatter.dateFormat = "hh:mm a"
-//        // Apply date format
-//        let selectedDate: String = dateFormatter.string(from: sender.date)
-//        date = selectedDate
-//        print(selectedDate)
-//
-//    }
-    
     @objc func datePickerValueChanged(_ sender: UIDatePicker){
                    // Create date formatter
         let dateFormatter = DateFormatter()
-//        dateFormatter.dateStyle = DateFormatter.Style.short
         dateFormatter.timeStyle = DateFormatter.Style.short
                 self.dateFormatter = DateFormatter()
                    // Set date format
@@ -88,7 +74,6 @@ class ListCell: UITableViewCell {
                    dateFormatter.dateFormat = "hh:mm a"
                    // Apply date format
         let selectedDate: String = dateFormatter.string(from: sender.date)
-        
                    selectedDteForTests = selectedDate
                    print("Selected value \(selectedDate)")
        

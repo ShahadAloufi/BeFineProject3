@@ -9,7 +9,6 @@ import SwiftUI
 import WatchConnectivity
 struct TypeDetailView: View {
     @State private var showingSheet = false
- //   let reminderViewModel: ReminderModel
     @ObservedObject public var reminderViewModel = ReminderModel()
     @Binding var buttonIsPressed: Bool
     @Binding var skipButtonPressed: Bool

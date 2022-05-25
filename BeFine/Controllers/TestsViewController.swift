@@ -17,7 +17,6 @@ class TestsViewController: UIViewController {
         table.register(CustomTabelViewCellTableViewCell.self, forCellReuseIdentifier: CustomTabelViewCellTableViewCell.id)
         table.translatesAutoresizingMaskIntoConstraints = false
        return table
-
    }()
     let testGif: UIImageView = {
     let imageView = UIImage.gifImageWithName("test")
