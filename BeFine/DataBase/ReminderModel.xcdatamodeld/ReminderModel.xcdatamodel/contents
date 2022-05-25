@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Reminder" representedClassName="Reminder" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="dose" optional="YES" attributeType="String"/>
+        <attribute name="frequency" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="String"/>
+        <relationship name="reminder" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reminders" inverseName="reminders" inverseEntity="Reminders"/>
+    </entity>
+    <entity name="Reminders" representedClassName="Reminders" syncable="YES">
+        <attribute name="typeOf" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[Reminder]"/>
+        <relationship name="reminders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reminder" inverseName="reminder" inverseEntity="Reminder"/>
+    </entity>
+    <elements>
+        <element name="Reminder" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="Reminders" positionX="-54" positionY="-9" width="128" height="59"/>
+    </elements>
+</model>
