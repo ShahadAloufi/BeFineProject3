@@ -32,27 +32,6 @@ final class Connectivity: NSObject {
   }
     
     
-    
-    public func send(movieIds: [Int]) {
-      guard WCSession.default.activationState == .activated else {
-        return
-      }
-        
-        // 1
-        #if os(watchOS)
-        // 2
-        guard WCSession.default.isCompanionAppInstalled else {
-          return
-        }
-        #else
-        // 3
-        guard WCSession.default.isWatchAppInstalled else {
-          return
-        }
-        #endif
-    }
-    
-    
 }
 
 // MARK: - WCSessionDelegate
