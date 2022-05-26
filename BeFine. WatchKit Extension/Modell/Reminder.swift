@@ -43,5 +43,5 @@ public class ReminderModel: NSObject,  WCSessionDelegate, ObservableObject {
         }
         
     }
-    
+
 }
