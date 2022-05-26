@@ -138,5 +138,3 @@ class CustomAC1: UITableViewCell {
     }
     
 }
-
-
