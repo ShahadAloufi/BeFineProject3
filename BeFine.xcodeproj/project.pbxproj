@@ -298,7 +298,7 @@
 				7783F6C527EAD1710009DF0F /* AddAC1TestView.swift */,
 				77F025CB27DF1E6F00FFB806 /* SegmentMedsView.swift */,
 				77F025EF27DF5AD900FFB806 /* SegmentTestView.swift */,
-				77EC0CEF27F2B85900877667 /* Dont Know */,
+				77EC0CEF27F2B85900877667 /* Customs */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -314,14 +314,14 @@
 			path = "Gifs loader";
 			sourceTree = "<group>";
 		};
-		77EC0CEF27F2B85900877667 /* Dont Know */ = {
+		77EC0CEF27F2B85900877667 /* Customs */ = {
 			isa = PBXGroup;
 			children = (
 				77F025F227DF5B5700FFB806 /* DailyTestTable.swift */,
 				77F025C527DF188F00FFB806 /* PillsTable.swift */,
 				77F025C927DF1A7900FFB806 /* CustomTabelViewCellInsulin.swift */,
 			);
-			path = "Dont Know";
+			path = Customs;
 			sourceTree = "<group>";
 		};
 		77EC0CF027F2BA5700877667 /* DropDownListView */ = {
