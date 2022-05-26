@@ -37,8 +37,8 @@ public class ReminderModel: NSObject,  WCSessionDelegate, ObservableObject {
     }
     public func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         DispatchQueue.main.async {
-            self.reminders[0].name = message["message"] as? String ?? "Unknown"
-            self.reminders[0].time =  message["messageForTime"] as? String ?? "Not Found"
+            self.reminders[0].name = message["message"] as? String ?? message["messageTestName"] as! String 
+            self.reminders[0].time =  message["messageForTime"] as? String ?? message["messageForTimeTest"] as! String 
             
         }
         
